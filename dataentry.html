@@ -6,5 +6,40 @@
 </head>
 
 <body>
+	<form>
+    	<p>Name: <input type ="text" name = "vid_title"/>  </p>
+       	<p>Video Link: <input type = "text" name = "vid_link"/> </p>
+        <p>Length: <input type = "text" name = "vid_length" /> </p>
+        <p>Resolution:
+            <input type = "radio" name = "vid_resolution" value = "144"> 144p
+            <input type = "radio" name = "vid_resolution" value = "144"> 240p
+            <input type = "radio" name = "vid_resolution" value = "144"> 360p
+            <input type = "radio" name = "vid_resolution" value = "144"> 480p
+            <input type = "radio" name = "vid_resolution" value = "144"> 720p
+            <input type = "radio" name = "vid_resolution" value = "440"> 1080p
+        </p> 
+        
+        <p> Description: </p>
+        <p><textarea name = "vid_descript" style = "width: 100%" rows ="5" maxlength = "500"> </textarea></p>
+        
+        <p> Language:
+            <input type = "radio" name = "vid_lang" value = "eng"> English
+            <input type = "radio" name = "vid_lang" value = "noneng"> Non-English
+        </p> 
+        
+        <p> View Count: <input type = "text" name = "vid_view"> </p>
+        <p> Video Type:
+        	<input type = "checkbox" name = "vid_type" value = "tutorial"> Tutorial
+            <input type = "checkbox" name = "vid_type" value = "tutorial"> Entertainment
+            <input type = "checkbox" name = "vid_type" value = "tutorial"> Application
+            <input type = "checkbox" name = "vid_type" value = "tutorial"> Weapon
+            <input type = "checkbox" name = "vid_type" value = "tutorial"> Group Demo
+            <input type = "checkbox" name = "vid_type" value = "tutorial"> Others
+      	</p>
+        
+        <p> Video Icon Image <input type = "text" name = "vid_icon"> </p>
+        <p> Tags (Seperated by comma): <input type = "text" name = "vid_tag"> </p>
+        <p> <input type = "submit">
+    </form>
 </body>
 </html>
