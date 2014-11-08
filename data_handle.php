@@ -11,8 +11,14 @@
 	$username = "root";
 	$password = "";
 	$dbname = "cs174";
+	$table = "fun_video";
+	$link = mysqli_connect($server, $username,$password)
+	or die("Unable to connect to database");
 	
-
+	$selected = mysqli_select_db($link, $dbname)
+	or die("Could not select database");
+	printf("Connection to the Server Opened");
+	
 ?>
 </body>
 </html>
