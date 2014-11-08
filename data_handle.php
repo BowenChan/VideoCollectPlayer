@@ -12,20 +12,20 @@
 	$password = "";
 	$dbname = "cs174";
 	$table = "fun_video";
-<<<<<<< HEAD
-	$link = mysqli_connect($server, $username,$password)
-	or die("Unable to connect to database");
-	
-	$selected = mysqli_select_db($link, $dbname)
-	or die("Could not select database");
-=======
 	$link = mysqli_connect($server, $user_name,$password)
 	or die("Unable to connect to database");
 	
 	$selected = mysqli_select_db($link, $table)
 	or die("Could not select table");
->>>>>>> d2ef2cfbc21acb6bf5640e1fc010561e6d41c827
-	printf("Connection to the Server Opened");
+	if(isset($_POST['vid_title']) && isset($_POST['vid_link']) && isset($_POST['vid_time']) && isset($_POST['vid_resolution']) && isset($_POST['vid_descript']) && isset($_POST['vid_lang']) && isset($_POST['vid_view']) && isset($_POST['vid_type']) && isset($_POST['vid_icon']) && isset($_POST['vid_tag']))
+	{
+		printf("Everything is filled");
+	}
+	/*
+	if($selected){
+		$SQL = "INSERT INTO fun_video(title, videolink, videolength,highestresolution,description,language,viewcount,videotype,iconeimage,tag) VALUES ('$_POST['vid_title']', $_POST['vid_link'], $_POST['vid_time'], $_POST['vid_resolution'], $_POST['vid_descript'], $_POST['vid_lang'],$_POST['vid_view'], $_POST['vid_type'], $_POST['vid_icon'], $_POST['vid_tag'])";
+	*/
+	
 	
 ?>
 </body>
