@@ -32,8 +32,8 @@
 		$tag = $_POST['vid_tag'];
 		if($selected){
 			
-		$SQL = "INSERT INTO 'fun_video'(title, videolink, videolength,highestresolution,description,language,viewcount,videotype,iconimage,tag) VALUES ('$title', '$videolink', '$videolength','$highestresolution', '$description', '$language'm '$viewcount', '$videotype', '$iconimage', '$tag')";
-		$retval = mysqli_query( $link, $SQL) or die(mysql_error());
+		$SQL = "INSERT INTO `fun_video`(`title`, `videolink`, `videolength`,`highestresolution`,`description`,`language`,`viewcount`,`videotype`,`iconimage`,`tag`) VALUES ('$title', '$videolink', '$videolength','$highestresolution', '$description', '$language', '$viewcount', '$videotype', '$iconimage', '$tag')";
+		$retval = mysqli_query( $link, $SQL) or die("</br>Error");
 		}
 	}
 	else
