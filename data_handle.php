@@ -20,6 +20,21 @@
 	if(isset($_POST['vid_title']) && isset($_POST['vid_link']) && isset($_POST['vid_length']) && isset($_POST['vid_resolution']) && isset($_POST['vid_descript']) && isset($_POST['vid_lang']) && isset($_POST['vid_view']) && isset($_POST['vid_type']) && isset($_POST['vid_icon']) && isset($_POST['vid_tag']))
 	{
 		printf("Everything is filled");
+		$title = $_POST['vid_title'];
+		$videolink = $_POST['vid_link'];
+		$videolength = $_POST['vid_length'];
+		$highestresolution = $_POST['vid_resolution'];
+		$description = $_POST['vid_descript'];
+		$language = $_POST['vid_lang'];
+		$viewcount =  $_POST['vid_view'];
+		$videotype = $_POST['vid_type'];
+		$iconimage = $_POST['vid_icon'];
+		$tag = $_POST['vid_tag'];
+		if($selected){
+			
+		$SQL = "INSERT INTO 'fun_video'(title, videolink, videolength,highestresolution,description,language,viewcount,videotype,iconimage,tag) VALUES ('$title', '$videolink', '$videolength','$highestresolution', '$description', '$language'm '$viewcount', '$videotype', '$iconimage', '$tag')";
+		$retval = mysqli_query( $link, $SQL) or die(mysql_error());
+		}
 	}
 	else
 	{
@@ -27,13 +42,9 @@
 		printf("<pre>");
 		print_r($_POST);
 		printf("</pre>");
-	}
-	/*
-	if($selected){
-		$SQL = "INSERT INTO fun_video(title, videolink, videolength,highestresolution,description,language,viewcount,videotype,iconeimage,tag) VALUES ('$_POST['vid_title']', $_POST['vid_link'], $_POST['vid_time'], $_POST['vid_resolution'], $_POST['vid_descript'], $_POST['vid_lang'],$_POST['vid_view'], $_POST['vid_type'], $_POST['vid_icon'], $_POST['vid_tag'])";
-	*/
+	}	
 	
-	
+	mysqli_close($link);
 ?>
 </body>
 </html>
