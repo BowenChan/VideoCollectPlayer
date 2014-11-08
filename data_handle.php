@@ -12,14 +12,21 @@
 	$password = "";
 	$dbname = "cs174";
 	$table = "fun_video";
-	$link = mysqli_connect($server, $user_name,$password)
+	$link = mysqli_connect($server, $username,$password)
 	or die("Unable to connect to database");
 	
-	$selected = mysqli_select_db($link, $table)
+	$selected = mysqli_select_db($link, $dbname)
 	or die("Could not select table");
-	if(isset($_POST['vid_title']) && isset($_POST['vid_link']) && isset($_POST['vid_time']) && isset($_POST['vid_resolution']) && isset($_POST['vid_descript']) && isset($_POST['vid_lang']) && isset($_POST['vid_view']) && isset($_POST['vid_type']) && isset($_POST['vid_icon']) && isset($_POST['vid_tag']))
+	if(isset($_POST['vid_title']) && isset($_POST['vid_link']) && isset($_POST['vid_length']) && isset($_POST['vid_resolution']) && isset($_POST['vid_descript']) && isset($_POST['vid_lang']) && isset($_POST['vid_view']) && isset($_POST['vid_type']) && isset($_POST['vid_icon']) && isset($_POST['vid_tag']))
 	{
 		printf("Everything is filled");
+	}
+	else
+	{
+		printf("Not everything is filled");
+		printf("<pre>");
+		print_r($_POST);
+		printf("</pre>");
 	}
 	/*
 	if($selected){
