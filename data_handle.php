@@ -8,10 +8,7 @@
 <body>
 <?php
 	require_once("connect.php");
-	$dbname = "cs174";
-	$table = "fun_video";
-	$selected = mysqli_select_db($link, $dbname)
-	or die("Could not select table");
+	require_once("selectdb.php");
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if(isset($_POST['vid_title']) && isset($_POST['vid_link']) && isset($_POST['vid_length']) && isset($_POST['vid_resolution']) && isset($_POST['vid_descript']) && isset($_POST['vid_lang']) && isset($_POST['vid_view']) && isset($_POST['vid_type']) && isset($_POST['vid_icon']) && isset($_POST['vid_tag']))
