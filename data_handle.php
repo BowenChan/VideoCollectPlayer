@@ -23,11 +23,11 @@
 		{
 			$title = $_POST['vid_title'];
 			$videolink = $_POST['vid_link'];
-			$videolength = $_POST['vid_length'];
+			$videolength = intval($_POST['vid_length']);
 			$highestresolution = $_POST['vid_resolution'];
 			$description = $_POST['vid_descript'];
 			$language = $_POST['vid_lang'];
-			$viewcount =  $_POST['vid_view'];
+			$viewcount =  intval($_POST['vid_view']);
 			$videotype = $_POST['vid_type'];
 			$iconimage = $_POST['vid_icon'];
 			$tag = $_POST['vid_tag'];
