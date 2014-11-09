@@ -7,14 +7,9 @@
 
 <body>
 <?php
-	$server = "localhost";
-	$username = "root";
-	$password = "";
+	require_once("connect.php");
 	$dbname = "cs174";
 	$table = "fun_video";
-	$link = mysqli_connect($server, $username,$password)
-	or die("Unable to connect to database");
-	
 	$selected = mysqli_select_db($link, $dbname)
 	or die("Could not select table");
 	if($_SERVER["REQUEST_METHOD"] == "POST")
