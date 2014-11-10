@@ -14,6 +14,40 @@
 	or die("This is failing");
 	$organize = "";
 	$video_data = array();
+		
+	//number of display per page
+	$display = 3;
+	
+	//detemine the pages
+	
+	if(isset($_GET['p']) && is_numeric($_GET['p'])){
+		$pages = $_GET['p'];
+	}
+	else
+	{
+		$q = mysqli_query($link,"SELECT COUNT(*) FROM `fun_video`");
+		$number = mysqli_fetch_row($q,MYSQLI_NUM);
+		$num_rec = $number[0];
+		
+		if($num_rec > $display){
+			$pages = ceil($num_rec/$display);
+		}
+		else
+		{
+			$pages = 1;
+		}
+	}
+	
+	if(isset($_['s'])&& is_numeric($_GET['s']))
+	{
+		$start = $_GET['s'];
+	}
+	else
+	{
+		$start = 0;
+	}
+	
+	$q =  mysqli_query($link,"SELECT * FROM `fun_video` ORDER BY 'id' ASC LIMIT $start, $display");
 ?>
 	<table>
     	<tr>
@@ -28,7 +62,7 @@
         <th style = "border:none"> Video Tags </th>
         </tr>
 <?php
-	while($current_vid = mysqli_fetch_array($res))
+	while($current_vid = mysqli_fetch_array($q, MYSQLI_ASSOC))
 	{
 		$output = "<tr style=text-align:center> ". 
 		"<td>" . $current_vid['id'] . "</td>" .
@@ -42,6 +76,33 @@
 		"<td>" . $current_vid['tag'] . "</td>" .
 		"</tr>";
 		echo $output;
+	}
+	mysqli_free_result($q);
+	mysqli_close($link);
+	
+	if($pages > 1)
+	{
+		echo '<br /><p?';
+		
+		$current_page = ($start/$display) + 1;
+		
+		if($current_page != 1){
+			echo '<a href="video.php?s=' .($start - $display) . '&p=' .$pages .'"> Previous</a> ';
+		}
+		
+		for($i = 1; $i <= $pages; $i++){
+			if($i != $current_page){
+				echo '<a href = "video.php?s='. (($display * ($i - 1))) . '&p=' . $pages . '">' . $i . '</a> ';
+			}
+			else
+			{
+				echo $i . ' ';
+			}
+		}
+		
+		if($current_page != $pages) {
+			echo ' <a href = "video.php?s=' . ($start + $display) . '&p=' . $pages . '"> Next </a>';
+		}
 	}
 ?>
 </body>
