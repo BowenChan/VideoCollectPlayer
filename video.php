@@ -6,6 +6,9 @@
 </head>
 
 <body>
-
+<?php
+	include('header.html');
+		include('display.php');
+?>
 </body>
 </html>

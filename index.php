@@ -6,7 +6,6 @@
 </head>
 <?php
 	include('header.html');
-	include('display.php');
 ?>
 <body>
 </body>

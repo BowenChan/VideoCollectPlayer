@@ -93,6 +93,10 @@ nav ul ul li a {
 	color: #D0D0D0;
 }
 
+nav ul ul li {
+	background:none;
+	color:white;
+}
 nav ul ul li a:hover {
 	background: #4b545f;
 	color: #AFA;
