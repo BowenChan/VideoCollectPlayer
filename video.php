@@ -8,6 +8,7 @@
 <body>
 <?php
 	include('header.html');
+	include('multiple_sort.php');
 	include('display.php');
 ?>
 </body>
