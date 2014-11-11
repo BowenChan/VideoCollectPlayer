@@ -26,7 +26,7 @@
 			if($selected){
 			$type = implode(",", $videotype);
 			$SQL = "INSERT INTO `fun_video`(`title`, `videolink`, `videolength`,`highestresolution`,`description`,`language`,`viewcount`,`videotype`,`iconimage`,`tag`) VALUES ('$title', '$videolink', '$videolength','$highestresolution', '$description', '$language', '$viewcount', '$type', '$iconimage', '$tag')";
-			$retval = mysqli_query( $link, $SQL) or die("</br>Error");
+			$retval = mysqli_query($link, $SQL) or die("</br>Error: " . mysqli_error($link));
 			}
 		}
 		else
