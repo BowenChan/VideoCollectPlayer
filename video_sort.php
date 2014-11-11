@@ -26,4 +26,6 @@
 			$sort = 'id';
 			break;
 	}
+	
+	$sort2 = isset($_GET['sort2']) ? $_GET['sort2'] : 'id';
 ?>

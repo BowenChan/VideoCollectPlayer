@@ -20,7 +20,7 @@
 	$video_data = array();
 		
 	//number of display per page
-	$display = 3 ;
+	$display = 8 ;
 	$num_rec = null;
 	if(isset($_GET[$num_rec]))
 	{
@@ -28,7 +28,7 @@
 	}
 	//detemine the pages
 	else($num_rec != mysqli_fetch_array(mysqli_query($link,"SELECT COUNT(*) FROM `fun_video`"),MYSQLI_NUM));
-		$q = mysqli_query($link,"SELECT COUNT(*) FROM `fun_video`");
+		$q = mysqli_query($link,"SELECT COUNT(*) FROM `fun_video` WHERE $sort2");
 		$row = mysqli_fetch_array($q,MYSQLI_NUM);
 		$num_rec = $row[0];
 		
@@ -47,7 +47,7 @@
 	{
 		$start = 0;
 	}
-	$q =  mysqli_query($link,"SELECT * FROM `fun_video` ORDER BY $order LIMIT $start, $display");
+	$q =  mysqli_query($link,"SELECT * FROM `fun_video`  WHERE `highestresolution` = '240' ORDER by $order LIMIT $start, $display");
 ?>
 	<table>
     	<tr>
