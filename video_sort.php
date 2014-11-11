@@ -27,5 +27,10 @@
 			break;
 	}
 	
+	$constraint = "`highestresolution` = '720'";
 	$sort2 = isset($_GET['sort2']) ? $_GET['sort2'] : 'id';
+	
+	switch($sort2)
+	{
+	}
 ?>
