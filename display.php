@@ -10,6 +10,8 @@
 <?php 
 	require_once("connect.php");
 	require_once("selectdb.php");
+	include('video_sort.php');
+
 	/*
 	$res = mysqli_query($link, "SELECT * FROM `fun_video` ORDER BY id ASC")
 	or die("This is failing");
@@ -45,7 +47,7 @@
 	{
 		$start = 0;
 	}
-	$q =  mysqli_query($link,"SELECT * FROM `fun_video` ORDER BY id ASC LIMIT $start, $display");
+	$q =  mysqli_query($link,"SELECT * FROM `fun_video` ORDER BY $order LIMIT $start, $display");
 ?>
 	<table>
     	<tr>
@@ -77,33 +79,16 @@
 	mysqli_free_result($q);
 	mysqli_close($link);
 	
-	if($num_pages > 1)
-	{
-		echo '<br /><p?';
-		
-		$current_page = ($start/$display) + 1;
-		
-		if($current_page != 1){
-			echo '<a href="video.php?s=' .($start - $display) . '&p=' .$num_pages .'"> Previous</a> ';
-		}
-		
-		for($i = 1; $i <= $num_pages; $i++){
-			//echo "$current_page </br>";
-			if($i != $current_page){
-				echo '<a href = "video.php?s='. (($display * ($i - 1))) . '&p=' . $num_pages . '">' . $i . '</a> ';
-			}
-			else
-			{
-				echo $i . ' ';
-			}
-		}
-		
-		if($current_page != $num_pages) {
-			echo ' <a href = "video.php?s=' . ($start + $display) . '&p=' . $num_pages . '"> Next </a>';
-		}
-	}
+	
+	include('pagedisplay.php');
+	
+	echo '</p>'; // Close the paragraph.
 	
 ?>
 	</table>
+<?php
+include('pagedisplay.php');
+	
+?>
 </body>
 </html>
