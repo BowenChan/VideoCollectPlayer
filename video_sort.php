@@ -10,7 +10,7 @@
 			$order = 'videolength ASC';
 			break;
 		case 'rsltn':
-			$order = 'highestresolution ASC';
+			$order = 'highestresolution DESC';
 			break;
 		case 'lang':
 			$order = 'language ASC';
