@@ -22,6 +22,7 @@
 	//number of display per page
 	$display = 3 ;
 	$num_rec = null;
+	$num_pages = 0;
 	if(isset($_GET[$num_rec]))
 	{
 		$num_rec = 0;
@@ -32,7 +33,10 @@
 		$q = mysqli_query($link,"SELECT COUNT(*) FROM `fun_video` $constr1");
 		$row = mysqli_fetch_array($q,MYSQLI_NUM);
 		$num_rec = $row[0];
-		
+	if($num_rec == 0)
+	{
+	}
+	else{
 		if($num_rec > $display){
 			$num_pages = ceil($num_rec/$display);
 		}
@@ -49,8 +53,9 @@
 		$start = 0;
 	}
 	$q =  mysqli_query($link,"SELECT * FROM `fun_video` $constr1 ORDER by $order LIMIT $start, $display");
+	}
 ?>
-	<table>
+	<table style="width:100%">
     	<tr>
     	<th style = "border:none"> id </th>
         <th style = "border:none"> video title </th>
@@ -63,6 +68,8 @@
         <th style = "border:none"> Video Tags </th>
         </tr>
 <?php
+	if($num_rec != 0)
+	{
 	while($row = mysqli_fetch_array($q, MYSQLI_ASSOC))
 	{
 		echo "<tr style=text-align:center> ". 
@@ -84,12 +91,14 @@
 	include('pagedisplay.php');
 	
 	echo '</p>'; // Close the paragraph.
-	
-?>
-	</table>
-<?php
-include('pagedisplay.php');
-	
+	echo '</table>';
+	include('pagedisplay.php');
+	}
+	else
+	{
+		echo '</table>';
+		echo "<h1 style=text-align:center>" . "There is no video matching this category" . "</h1>";
+	}
 ?>
 </body>
 </html>

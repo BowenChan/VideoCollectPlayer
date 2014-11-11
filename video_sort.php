@@ -27,7 +27,6 @@
 			break;
 	}
 	$constr = isset($_GET['constr']) ? $_GET['constr'] : "";
-	echo $constr;
 	switch($constr)
 	{
 		//resolution
@@ -49,9 +48,72 @@
 		case '1080':
 			$constr1 = "WHERE `highestresolution` = '1080'";
 			break;
+
+		//Language
+		case 'eng':
+			$constr1 = "WHERE `language` = 'English'";
+			break;
+		case 'none':
+			$constr1 = "WHERE `language` = 'Non-English'";
+			break;
+			
+		//Length
+		case '10':
+			$constr1 = "WHERE `videolength` > 0 AND `videolength` <= 10";
+			break; 
+		case '20':
+			$constr1 = "WHERE `videolength` => 10 AND `videolength` <= 20";
+			break; 
+		case '40':
+			$constr1 = "WHERE `videolength` => 20 AND `videolength` <= 40";
+			break; 
+		case '60':
+			$constr1 = "WHERE `videolength` => 40 AND `videolength` <= 60";
+			break; 
+		case '61':
+			$constr1 = "WHERE `videolength` => 60";
+			break; 
+			
+		//View Count
+		case '75':
+			$constr1 = "WHERE `viewcount` >= 50000 AND `viewcount` <= 75000";
+			break;
+		case '100':
+			$constr1 = "WHERE `viewcount` >= 75001 AND `viewcount` <= 100000";
+			break;
+		case '125':
+			$constr1 = "WHERE `viewcount` >= 100001 AND `viewcount` <= 125000";
+			break;
+		case '150':
+			$constr1 = "WHERE `viewcount` >= 125001 AND `viewcount` <= 150000";
+			break;
+		case '151':
+			$constr1 = "WHERE `viewcount` >= 151001";
+			break;				
+			
+		//Type
+		case 'tut':
+			$constr1 = "WHERE `videotype` LIKE '%Tutorial%'";
+			break;
+		case 'ent':
+			$constr1 = "WHERE `videotype` LIKE '%Entertainment%'";
+			break;
+		case 'app':
+			$constr1 = "WHERE `videotype` LIKE '%Application%'";
+			break;
+		case 'wep':
+			$constr1 = "WHERE `videotype` LIKE '%Weapon%'";
+			break;
+		case 'gro':
+			$constr1 = "WHERE `videotype` LIKE '%Group Demo%'";
+			break;
+		case 'oth':
+			$constr1 = "WHERE `videotype` LIKE '%Others%'";
+			break;
 		default:
 			$constr1 = "";
 			break;
 		
+
 	}
 ?></pre>
