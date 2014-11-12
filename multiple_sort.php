@@ -1,10 +1,26 @@
 <!doctype html>
+<?php
+	if(isset($_POST['vidl']) || isset($_POST['vidr']) || isset($_POST['vidv']) || isset($_POST['vidc']) || isset($_POST['vidt'])){
+		$vidleng = empty($_POST['vidl']) ?"": $_POST['vidl'];
+		$vidres = empty($_POST['vidr']) ? "":$_POST['vidr'];
+		$vidlang = empty($_POST['vidv']) ?"": $_POST['vidv'] ;
+		$vidcoun = empty($_POST['vidc']) ?"": $_POST['vidc'];
+		$vidtype = empty($_POST['vidt']) ?"": implode(',' ,$_POST['vidt']);
+		$vidarr = array();
+		$j = 0;
+		for($i = 1; $i < 5; $i++)
+		{
+			
+		}
+	}
+	
+?>
 <html>
 <head>
 <meta charset="utf-8">
 <title> Multiple Video Sort</title>
 </head>
-<form>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
 	<!-- video length -->
     <p> Length of Video</p>
 	<input type ="radio" name = "vidl" value = "10"> 0 - 10 minutes
@@ -43,7 +59,8 @@
     <input type = "checkbox" name = "vidt[]" value = "Weapon"> Weapon
     <input type = "checkbox" name = "vidt[]" value = "Group demo	"> Group Demo
     <input type = "checkbox" name = "vidt[]" value = "Others"> Others
-
+	
+    <p><input type = "submit" value = "filter"></p>
 </form>
 <body>
 </body>

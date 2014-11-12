@@ -80,7 +80,7 @@
 		"<td>" . $row['description'] . "</td>" .
 		"<td> " . $row['viewcount'] . "</td>" .
 		"<td>" . $row['language'] . "</td>" .
-		"<td><a href = " . $row['videolink'] . "><img src =" . $row['iconimage'] . " alt=picture></a></td>" .
+		"<td><a target = '_blank' href = " . $row['videolink'] . "><img src =" . $row['iconimage'] . " alt=picture></a></td>" .
 		"<td>" . $row['tag'] . "</td>" .
 		"</tr>";
 	}
@@ -101,4 +101,4 @@
 	}
 ?>
 </body>
-</html>
+</html>'
