@@ -1,17 +1,22 @@
 <!doctype html>
 <?php
 	if(isset($_POST['vidl']) || isset($_POST['vidr']) || isset($_POST['vidv']) || isset($_POST['vidc']) || isset($_POST['vidt'])){
-		$vidleng = empty($_POST['vidl']) ?"": $_POST['vidl'];
-		$vidres = empty($_POST['vidr']) ? "":$_POST['vidr'];
-		$vidlang = empty($_POST['vidv']) ?"": $_POST['vidv'] ;
-		$vidcoun = empty($_POST['vidc']) ?"": $_POST['vidc'];
-		$vidtype = empty($_POST['vidt']) ?"": implode(',' ,$_POST['vidt']);
 		$vidarr = array();
-		$j = 0;
-		for($i = 1; $i < 5; $i++)
-		{
-			
-		}
+		$vidleng = empty($_POST['vidl']) ?"": $_POST['vidl'];
+		if($vidleng != "")
+			array_push($vidarr, $vidleng);
+		$vidres = empty($_POST['vidr']) ? "":$_POST['vidr'];
+		if($vidres != "")
+			array_push($vidarr, $vidres);
+		$vidlang = empty($_POST['vidv']) ?"": $_POST['vidv'] ;
+		if($vidlang != "")
+			array_push($vidarr, $vidlang);
+		$vidcoun = empty($_POST['vidc']) ?"": $_POST['vidc'];
+		if($vidcoun != "")
+			array_push($vidarr, $vidcoun);
+		$vidtype = empty($_POST['vidt']) ?"": implode(',' ,$_POST['vidt']);
+		if($vidtype != "")
+			array_push($vidarr, $vidtype);
 	}
 	
 ?>
