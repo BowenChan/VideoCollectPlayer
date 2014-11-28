@@ -9,6 +9,6 @@
 	$row = mysqli_fetch_assoc($user_sql);
 	$login_session = $row['username'];
 	if(!isset($login_session)){
-		header('Location: memberonly.php');
+		header('location: memberonly.php');
 	}
 ?>

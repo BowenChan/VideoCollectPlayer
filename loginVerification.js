@@ -2,7 +2,7 @@
 <script language = "javascript">
 	function check(form){
 		if(form.username.value == "username" && form.password.value == "password"){
-			window.open('memberonly.only');
+			window.open('memberonly.php');
 		}
 		
 		

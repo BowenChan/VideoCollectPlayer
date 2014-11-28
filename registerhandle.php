@@ -57,12 +57,13 @@
 			$error .= "Your passwords do not match. ";
 		}
 		
-		if(strlen($_POST['pass1']) > 0 && strlen($_POST['pass2']) > 0 && $_POST['pass1'] === $_POST['pass2']) {
+		if(strlen($_POST['pass1']) > 0 && strlen($_POST['pass2']) > 0 && $_POST['pass1'] == $_POST['pass2']) {
 			$pass = $_POST['pass1'];
-			$SQLd = "INSERT INTO `user` (`firstname`, `lastname`,`email`, `username`,`password`) VALUES ($first,$last,$email,$username,$pass)";
+			$SQLd = "INSERT INTO `user` (`firstname`, `lastname`,`email`, `username`,`password`) VALUES ('$first','$last','$email','$username','$pass')";
 			$retval = mysqli_query($link, $SQLd);
-			
-			$results = mysqli_stmt_affected_rows($retval);
+			echo $retval;
+			echo $first;
+			/*
 			if($results == 1) {
 				$sql = "SELECT * from `user` where email='".$email."' LIMIT 1";
 				$raw_results = $mysqli->query($sql);		
@@ -74,10 +75,11 @@
 				}
 			} else {
 				$error = "Someone has already registered with this email.";
-			}
+			}*/
 			
 		}
 	}
+	mysqli_close($link);
 ?>
 </body>
 </html>

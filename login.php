@@ -33,7 +33,7 @@
 			//$rows = mysqli_num_rows($result);
 			if($result){
 				$_SESSION['login_user'] = $username;
-				header("location: profile.php");
+				//header("location: profile.php");
 			}
 			else {
 				$error = "Username or Password is invalid";
