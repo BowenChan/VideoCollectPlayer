@@ -29,7 +29,7 @@
 			
 			include_once('selectdbt.php');
 			
-			$result = mysqli_query($link, "select * from users where password ='$password' AND username = '$username'");
+			$result = mysqli_query($link, "SELECT * FROM `user` WHERE `password` ='$password' AND `username` = '$username'");
 			//$rows = mysqli_num_rows($result);
 			if($result){
 				$_SESSION['login_user'] = $username;
@@ -43,15 +43,5 @@
 		}
 	}
 ?>
-<script language = "javascript">
-	function check(form){
-		if(form.username.value == "username" && form.password.value == "password"){
-			window.open('memberonly.only');
-		}
-		
-		
-	}
-	
-</script>
 </body>
 </html>

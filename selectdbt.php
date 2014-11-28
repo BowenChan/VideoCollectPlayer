@@ -8,7 +8,7 @@
 <body>
 <?php
 	$dbname = "cs174";
-	$table = "users";
+	$table = "user";
 	$selected = mysqli_select_db($link, $dbname);
 ?>
 </body>
