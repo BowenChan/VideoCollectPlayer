@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 </head>
-<?php
-	sesion_start();
-	if(session_destroy())
-	{
-		header("Location: index.php");
-	}
-?>
+
 <body>
+<?php
+	$dbname = "cs174";
+	$table = "users";
+	$selected = mysqli_select_db($link, $dbname);
+?>
 </body>
 </html>

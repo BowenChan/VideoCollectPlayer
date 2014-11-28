@@ -15,6 +15,7 @@
     <p>First Name: </br><input type="text" placeholder="First Name" id="firstname" name="firstname" value=""/> </p>
     <p>Last Name: </br><input type="text" placeholder="Last Name" name="lastname" value=""/></p>
     <p>Email: </br><input type="text" placeholder="Email" name="email" value=""/></p>
+    <p>Username: </br><input type = "text" placeholder="Username" name ="username" value = ""/> </p>
     <p>Password: </br><input type="password" placeholder="Password" name="pass1"/></p>
     <p>Confirm Password: </br><input type="password" placeholder="Confirm Password" name="pass2"/></p> 
     <p><input id="register" type="submit" value="Register" /></p>

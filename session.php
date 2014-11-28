@@ -1,7 +1,7 @@
 <?php
 
 	include('connect.php');
-	include('selectdb.php');
+	include('selectdbt.php');
 	session_start();
 	$user_check = $_SESSION['login_user'];
 	$user_sql = mysqli_query($link, "SELECT username FROM users WHERE username='$user_check'");
