@@ -27,6 +27,7 @@ nav ul li:hover > ul {
 	This centers the navigation bar
 */
 nav{
+
   text-align: center;
 }
 
