@@ -8,14 +8,39 @@
 <body>
 <?php
 	session_start();
-	$_SESSION['login_user'] = $username;
-	echo $_SESSION['login_user'];
+	$error = '';
+	if(isset($_POST['submit'])){
+		if(empty($_POST['username']) || empty($_POST['password'])){
+			$error = "Username or Password is Invalid";
+		}
+		else
+		{
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			
+			include_once('connect.php');
+	
+			$username = stripslashes($username);
+			$password = stripslashes($password);
+			$username = mysql_real_escape_string($username);
+			$password = mysql_real_escape_string($password);
+			
+			include_once('selectdb.php');
+			
+			//$query = mysqli_query($link, "select * from users where password ='$password' AND username = '$username'");
+			//$rows = mysqli_num_rows($query);
+			if($rows == 1){
+				$_SESSION['login_user'] = $username;
+				header("location: profile.php");
+			}
+			else {
+				$error = "Username or Password is invalid";
+			}
+			mysqli_close($link);
+		}
+	}
+	?>
 ?>
-<form name = "login" action = "" method="post">
-	<p> Username: <input type = "text" name ="username" placeholder = "username"/></p>
-    <p> Password: <input type = "password" name = "password" placeholder = "********"/></p>
-    <p><input name ="submit" type ="submit" value = "login"></p>
-</form>
 <script language = "javascript">
 	function check(form){
 		if(form.username.value == "username" && form.password.value == "password"){
