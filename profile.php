@@ -10,6 +10,7 @@
 	
 <body>
 	<div> Welcome : <?php echo $login_session; ?> </div>
-    <div> <a href = "logout.php"> Log Out </a></div>
+    <div> <a href = "logout.php"> Log Out </a>
+    </div>
 </body>
 </html>

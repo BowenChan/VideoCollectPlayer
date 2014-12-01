@@ -7,10 +7,8 @@
 
 <body>
 <?php
-	include('header.html');
-	include('multiple_sort.php');
-	include('display.php');
-	display('selectdb.php');
+	include('connect.php');
+	include('selectdbfav.php');
 ?>
 </body>
 </html>

@@ -8,9 +8,9 @@
 <body>
 <?php
 	include('header.html');
-	include('multiple_sort.php');
 	include('display.php');
-	display('selectdb.php');
+	display('selectdbfav.php');
+	
 ?>
 </body>
 </html>

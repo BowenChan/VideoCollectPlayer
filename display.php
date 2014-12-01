@@ -8,10 +8,12 @@
 
 <body>
 <?php 
+	function display($db){
 	require_once("connect.php");
-	require_once("selectdb.php");
+	include($db);
 	include('video_sort.php');
-
+	
+	
 	/*
 	$res = mysqli_query($link, "SELECT * FROM `fun_video` ORDER BY id ASC")
 	or die("This is failing");
@@ -29,8 +31,8 @@
 	}
 	//detemine the pages
 
-	else($num_rec != mysqli_fetch_array(mysqli_query($link,"SELECT COUNT(*) FROM `fun_video` $constr1"),MYSQLI_NUM));
-		$q = mysqli_query($link,"SELECT COUNT(*) FROM `fun_video` $constr1");
+	else($num_rec != mysqli_fetch_array(mysqli_query($link,"SELECT COUNT(*) FROM `". $table ."` $constr1"),MYSQLI_NUM));
+		$q = mysqli_query($link,"SELECT COUNT(*) FROM `".$table ."` $constr1");
 		$row = mysqli_fetch_array($q,MYSQLI_NUM);
 		$num_rec = $row[0];
 	if($num_rec == 0)
@@ -52,7 +54,7 @@
 	{
 		$start = 0;
 	}
-	$q =  mysqli_query($link,"SELECT * FROM `fun_video` $constr1 ORDER by $order LIMIT $start, $display");
+	$q =  mysqli_query($link,"SELECT * FROM `" . $table . "` $constr1 ORDER by $order LIMIT $start, $display");
 	}
 ?>
 	<table style="width:100%">
@@ -98,6 +100,7 @@
 	{
 		echo '</table>';
 		echo "<h1 style=text-align:center>" . "There is no video matching this category" . "</h1>";
+	}
 	}
 ?>
 </body>

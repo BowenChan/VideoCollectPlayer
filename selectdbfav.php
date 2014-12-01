@@ -7,10 +7,10 @@
 
 <body>
 <?php
-	include('header.html');
-	include('multiple_sort.php');
-	include('display.php');
-	display('selectdb.php');
+	$dbname = "cs174";
+	$table = "fav_video";
+	$selected = mysqli_select_db($link, $dbname);
+	
 ?>
 </body>
 </html>
