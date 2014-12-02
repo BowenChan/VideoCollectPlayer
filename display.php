@@ -75,6 +75,7 @@
 	{
 	while($row = mysqli_fetch_array($q, MYSQLI_ASSOC))
 	{
+		$_SESSION['prev'] = $_SERVER['REQUEST_URI'];
 		echo "<tr style=text-align:center> ". 
 		"<td>" . $row['id'] . "</td>" .
 		"<td>" . $row['title'] . "</td>" .
@@ -85,7 +86,7 @@
 		"<td>" . $row['language'] . "</td>" .
 		"<td><a target = '_blank' href = " . $row['videolink'] . "><img src =" . $row['iconimage'] . " alt=picture></a></td>" .
 		"<td>" . $row['tag'] . "</td>" .
-		"<td><form><button type = 'button' value = '". $row['id'] . "'> Favorite </button></form></td>" . 	
+		"<td><form><a href='favoriteVideo.php?id=". $row['id']. "'><button type = 'button' name = 'vidID' value = '". $row['id'] . "'> Favorite </button></a></form></td>" . 	
 		"</tr>";
 	}
 	mysqli_free_result($q);
