@@ -68,6 +68,7 @@
         <th style = "border:none"> Video Type </th>
         <th style = "border:none"> Icon Image </th>
         <th style = "border:none"> Video Tags </th>
+        <th style = "border:none"> Favorite </th>
         </tr>
 <?php
 	if($num_rec != 0)
@@ -84,6 +85,7 @@
 		"<td>" . $row['language'] . "</td>" .
 		"<td><a target = '_blank' href = " . $row['videolink'] . "><img src =" . $row['iconimage'] . " alt=picture></a></td>" .
 		"<td>" . $row['tag'] . "</td>" .
+		"<td><form><button type = 'button' value = '". $row['id'] . "'> Favorite </button></form></td>" . 	
 		"</tr>";
 	}
 	mysqli_free_result($q);

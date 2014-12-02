@@ -7,10 +7,10 @@
 
 <body>
 <?php
+	session_start();
 	include('header.html');
 	include('display.php');
 	display('selectdbfav.php');
-	
 ?>
 </body>
 </html>
