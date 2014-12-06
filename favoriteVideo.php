@@ -20,7 +20,6 @@
 			$retval = mysqli_query($link, $sql) or die("</br>Error: " . mysqli_error($link));
 			
 		}
-		echo $_GET['id'];
 		header('Location: video.php');
 	}
 	else{

@@ -43,5 +43,10 @@
 		}
 	}
 ?>
+<div>
+<form action = "login.php" style="text-align:right">
+	<p> Username: <input type = "text" placeholder="username"> Password: <input type = "text" placeholder="password"> <input type = "submit" name="login" value="login"> </br></p>
+</form>
+</div>
 </body>
 </html>

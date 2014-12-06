@@ -6,6 +6,7 @@
 </head>
 <?php
 	include('header.html');
+	include('login.php');
 ?>
 <body>
 <h1 style = "text-align:center"> Welcome to Bowen Chan's Video Site <h1>
