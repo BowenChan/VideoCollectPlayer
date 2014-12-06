@@ -1,5 +1,5 @@
 <pre><?php
-	require_once('multiple_sort.php');
+	include_once('multiple_sort.php');
 	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 	
 	switch($sort)
@@ -27,11 +27,14 @@
 			$sort = 'id';
 			break;
 	}
-	if(isset($vidarr)){
-		$vidarr = $vidarr;
+	
+	if(isset($_SESSION['vidarr'])){
+		$vidarr = $_SESSION['vidarr'];
 	}
 	else
-		$vidarr =0;
+	{
+		$vidarr = 0;
+	}
 
 	if($vidarr == 0)
 	{

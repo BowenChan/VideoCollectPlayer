@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+	session_start();
 	if(isset($_POST['vidl']) || isset($_POST['vidr']) || isset($_POST['vidv']) || isset($_POST['vidc']) || isset($_POST['vidt'])){
 		$vidarr = array();
 		$vidleng = empty($_POST['vidl']) ?"": $_POST['vidl'];
@@ -18,7 +19,7 @@
 		if($vidtype != "")
 			array_push($vidarr, $vidtype);
 	}
-	
+	$_SESSION['vidarr'] = $vidarr;
 ?>
 <html>
 <head>
