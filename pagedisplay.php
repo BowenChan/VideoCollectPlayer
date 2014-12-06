@@ -8,7 +8,11 @@
 <body style = "text-align:center">
 <?php
 if ($num_pages > 1) {
-	
+	if(isset($constr))
+	{
+	}
+	else
+		$constr = "";
 	echo '<br /><p>';
 	$current_page = ($start/$display) + 1;
 	
